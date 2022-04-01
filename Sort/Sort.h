@@ -1,0 +1,11 @@
+#pragma once
+#include <iostream>
+
+using namespace std;
+
+//≤Â»Î≈≈–Ú
+extern void InsertSort(int* a, int n);
+
+//œ£∂˚≈≈–Ú
+extern void ShellSort(int* a, int n);
+
