@@ -1,1 +1,2 @@
 D:\GitHubWork\Algorithm\Sort\x64\Debug\Sort.exe
+D:\GitWork\GitHub\Algorithm\Sort\x64\Debug\Sort.exe

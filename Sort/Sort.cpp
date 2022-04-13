@@ -1,5 +1,31 @@
 #include "Sort.h"
 
+//√∞≈›≈≈–Ú
+void BubbleSort(int* a, int len)
+{
+	int last_ex_sort = 0;
+	int sort_board = len - 1;
+	for (int i = 0; i < len - 1; i++)
+	{
+		bool is_over = true;
+		for (int j = 0; j < sort_board; j++)
+		{
+			if (a[j] > a[j + 1])
+			{
+				int temp = a[j];
+				a[j] = a[j + 1];
+				a[j + 1] = a[j];
+
+				is_over = false;
+				last_ex_sort = j;
+			}
+		}
+		sort_board = last_ex_sort;
+		if (is_over)
+			break;
+	}
+}
+
 //≤Â»Î≈≈–Ú
 void InsertSort(int* a, int len)
 {

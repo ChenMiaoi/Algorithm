@@ -3,6 +3,9 @@
 
 using namespace std;
 
+//√∞≈›≈≈–Ú
+extern void BubbleSort(int* a, int n);
+
 //≤Â»Î≈≈–Ú
 extern void InsertSort(int* a, int n);
 
