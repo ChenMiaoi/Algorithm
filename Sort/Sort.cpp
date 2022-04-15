@@ -26,6 +26,42 @@ void BubbleSort(int* a, int len)
 	}
 }
 
+//鸡尾酒排序 -- 适用于接近有序
+void SupperBubbleSort(int* a, int len)
+{
+	int temp = 0;
+	for (int i = 0; i < len / 2; i++)
+	{
+		bool is_over = true;
+		for (int j = i; j < len - i - 1; j++)
+		{
+			if (a[j] > a[j + 1])
+			{
+				temp = a[j];
+				a[j] = a[j + 1];
+				a[j + 1] = temp;
+				is_over = false;
+			}
+		}
+		if (is_over)
+			break;
+
+		is_over = true;
+		for (int k = len - i - 1; k > i; k--)
+		{
+			if (a[k] < a[k - 1])
+			{
+				temp = a[k];
+				a[k] = a[k - 1];
+				a[k - 1] = temp;
+				is_over = false;
+			}
+		}
+		if (is_over)
+			break;
+	}
+}
+
 //插入排序
 void InsertSort(int* a, int len)
 {
@@ -52,4 +88,40 @@ void InsertSort(int* a, int len)
 void ShellSort(int* a, int n)
 {
 
+}
+
+static int* partition(int* a, int* startIndex, int* endIndex)
+{
+	int pivot = *startIndex;
+	int* left = startIndex;
+	int* right = endIndex;
+
+	while (left != right)
+	{
+		while (left < right && *right > pivot)
+			right--;
+		while (left < right && *left <= pivot)
+			left++;
+		if (left < right)
+		{
+			int temp = *left;
+			*left = *right;
+			*right = temp;
+		}
+	}
+
+	*startIndex = *left;
+	*left = pivot;
+	return left;
+}
+
+//快速排序
+void QuickSort(int* a, int* startIndex, int* endIndex)
+{
+	if (startIndex >= endIndex)
+		return;
+
+	int* pivoIndex = partition(a, startIndex, endIndex);
+	QuickSort(a, startIndex, pivoIndex - 1);
+	QuickSort(a, pivoIndex + 1, endIndex);
 }
