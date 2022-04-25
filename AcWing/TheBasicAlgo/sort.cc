@@ -40,6 +40,7 @@ int main()
 }
 #endif // !0 快速排序
 
+#if 0
 const int N = 1000010;
 int n;
 int q[N], temp[N];
@@ -83,5 +84,52 @@ int main()
     for (int i = 0; i < n; i++)
         printf("%d ", q[i]);
     
+    return 0;
+}
+#endif //!0 归并排序
+
+const int N = 100010;
+int n, m;
+int q[N];
+int main()
+{
+
+    scanf("%d%d", &n, &m);
+    for (int i = 0; i < n; i++)
+        scanf("%d", &q[i]);
+    while (m--)
+    {
+        int x;
+        scanf("%d", &x);
+
+        int left = 0, right = n - 1;
+        while (left < right)
+        {
+            int mid = left + right >> 1;
+            if (q[mid] >= x)
+                right = mid;
+            else
+                left = mid + 1;
+        }
+
+        if (q[left] != x)
+            cout << "-1 -1" << endl;
+        else
+        {
+            cout << left << ' ';
+
+            int left = 0, right = n - 1;
+            while (left < right)
+            {
+                int mid = left + right + 1 >> 1;
+                if (q[mid] <= x)
+                    left = mid;
+                else
+                    right = mid - 1;
+            }
+
+            cout << left << endl;
+        }
+    }
     return 0;
 }
